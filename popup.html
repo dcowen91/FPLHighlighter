@@ -1,9 +1,34 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Popup</title>
-  </head>
-  <body>
-    HELLO WORLD
-  </body>
+<head>
+	<title>Popup</title>
+	<style>
+		body {
+			white-space: nowrap;
+		}
+/*
+#container {
+  width: auto;
+  height: auto;
+}*/
+
+.colorContainer {
+	display: block;
+	margin-left: 100px;
+	margin-right: 20px;
+}
+</style>
+</head>
+<body>
+	<div id="container">
+		<div id="teamContainer" class="colorContainer">
+			Team highlight color: 
+			<div id="teamColor"></div>
+		</div>
+		<div id="WatchListContainer" class="colorContainer">
+			Watchlist highlight color: 
+			<div id="watchColor"></div>
+		</div>
+	</div>
+</body>
 </html>
