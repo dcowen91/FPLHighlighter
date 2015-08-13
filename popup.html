@@ -5,6 +5,10 @@
 	<style>
 		body {
 			white-space: nowrap;
+			font-family: Helvetica, Arial, Sans-Serif;
+			font-size: 14px;
+			font-weight: normal;
+
 		}
 /*
 #container {
@@ -12,10 +16,26 @@
   height: auto;
 }*/
 
+
+
 .colorContainer {
 	display: block;
 	margin-left: 100px;
 	margin-right: 20px;
+}
+
+.colorChoice {
+	width: 20px;
+	height: 20px;
+	display: none;
+}
+#chosenColor {
+	width: 20px;
+	height: 20px;
+	background-color:red;
+}
+.colorChoiceContainer {
+	display:inline-block;
 }
 </style>
 </head>
@@ -23,12 +43,33 @@
 	<div id="container">
 		<div id="teamContainer" class="colorContainer">
 			Team highlight color: 
-			<div id="teamColor"></div>
+			<div id="teamColor" class="colorChoiceContainer">
+				<div id="chosenColor">
+				</div>
+				<div id="colorchoices">
+					<div class="colorChoice" id="choice1"></div>
+					<div class="colorChoice" id="choice2"></div>
+					<div class="colorChoice" id="choice3"></div>
+					<div class="colorChoice" id="choice4"></div>
+					<div class="colorChoice" id="choice5"></div>
+				</div>
+			</div>
 		</div>
 		<div id="WatchListContainer" class="colorContainer">
 			Watchlist highlight color: 
-			<div id="watchColor"></div>
+			<div id="watchColor" class="colorChoiceContainer">
+				<div id="chosenColor">
+				</div>
+				<div id="colorchoices">
+					<div class="colorChoice" id="choice1"></div>
+					<div class="colorChoice" id="choice2"></div>
+					<div class="colorChoice" id="choice3"></div>
+					<div class="colorChoice" id="choice4"></div>
+					<div class="colorChoice" id="choice5"></div>
+				</div>
+			</div>
 		</div>
 	</div>
+
 </body>
 </html>
