@@ -3,18 +3,26 @@
 <head>
 	<title>Popup</title>
 	<style>
-body {
+body 
+{
 	white-space: nowrap;
 	font-family: Helvetica, Arial, Sans-Serif;
 	font-size: 14px;
 	font-weight: normal;
 }
 
-#container {
+h1 
+{
+    margin-top: 0px;
+}
+
+#container 
+{
 	padding: 1em;
 }
 
-.colorContainer {
+.colorContainer 
+{
 	display: block;
 	margin-bottom: 10px;
 	padding: 7px 8px 6px 13px;
@@ -25,25 +33,41 @@ body {
 	-webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
+    overflow:auto;
 }
 
-.colorChoice {
-	width: 20px;
-	height: 20px;
-	display: none;
+.colorChoice
+{
+	display:inline-block;
 }
-#chosenColor {
+
+.colorChoices
+{
+	margin-top: 25px;
+	border: 1px solid #cccccc;
+	-webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    display: none;
+}
+
+.chosenColor 
+{
+	display:inline-block;
 	float:right;
+}
+
+.colorChoiceContainer 
+{
 	width: 20px;
 	height: 20px;
 	background-color:red;
+	border: 1px solid #cccccc;
 	-webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
 }
-.colorChoiceContainer {
-	display:inline-block;
-}
+
 .colorCaption
 {
 	float:left;
@@ -54,38 +78,34 @@ body {
 	<div id="container">
 	<h1>FPL Highlighter</h1>
 		<div id="teamContainer" class="colorContainer">
-			<div class="colorCaption">
-				Team Highlight Color:
-			</div>
-			<div id="teamColor" class="colorChoiceContainer">
-				<div id="chosenColor">
-				</div>
-				<div id="colorchoices">
-					<div class="colorChoice" id="choice1"></div>
-					<div class="colorChoice" id="choice2"></div>
-					<div class="colorChoice" id="choice3"></div>
-					<div class="colorChoice" id="choice4"></div>
-					<div class="colorChoice" id="choice5"></div>
-				</div>
+			<div class="colorCaption">Team Highlight Color</div>
+			<div id="teamColor" class="colorChoiceContainer chosenColor"></div>
+			<div class="colorChoices">
+				<div class="colorChoice colorChoiceContainer" id="choice1"></div>
+				<div class="colorChoice colorChoiceContainer" id="choice2"></div>
+				<div class="colorChoice colorChoiceContainer" id="choice3"></div>
+				<div class="colorChoice colorChoiceContainer" id="choice4"></div>
+				<div class="colorChoice colorChoiceContainer" id="choice5"></div>
+				<div class="colorChoice colorChoiceContainer" id="choice6"></div>
+				<div class="colorChoice colorChoiceContainer" id="choice7"></div>
 			</div>
 		</div>
 		<div id="WatchListContainer" class="colorContainer">
-			<div class="colorCaption">
-				Watchlist Highlight Color: 
+			<div class="colorCaption">Watchlist Highlight Color</div>
+			<div id="watchColor" class="colorChoiceContainer chosenColor"></div>
+			<div class="colorChoices">
+				<div class="colorChoice colorChoiceContainer" id="choice1"></div>
+				<div class="colorChoice colorChoiceContainer" id="choice2"></div>
+				<div class="colorChoice colorChoiceContainer" id="choice3"></div>
+				<div class="colorChoice colorChoiceContainer" id="choice4"></div>
+				<div class="colorChoice colorChoiceContainer" id="choice5"></div>
+				<div class="colorChoice colorChoiceContainer" id="choice6"></div>
+				<div class="colorChoice colorChoiceContainer" id="choice7"></div>
 			</div>
-			<div id="watchColor" class="colorChoiceContainer">
-				<div id="chosenColor">
-				</div>
-				<div id="colorchoices">
-					<div class="colorChoice" id="choice1"></div>
-					<div class="colorChoice" id="choice2"></div>
-					<div class="colorChoice" id="choice3"></div>
-					<div class="colorChoice" id="choice4"></div>
-					<div class="colorChoice" id="choice5"></div>
-				</div>
 			</div>
 		</div>
 	</div>
-
+	<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="popup.js"></script>
 </body>
 </html>
