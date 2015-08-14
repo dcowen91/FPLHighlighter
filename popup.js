@@ -16,4 +16,8 @@ $(document).ready(function() {
 	//TODO: save colors to local store
 
 	//TODO: popup.css & clean up
+
+	//TODO: icons
+
+	//TODO: flyout css
 });
