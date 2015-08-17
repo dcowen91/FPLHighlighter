@@ -1,3 +1,6 @@
+var _PLCOLOR = "yellow";
+//TODO: pull this from local store
+
 function collectTeamMembers() {
 	var anchors =  $(".ismDataOriginal a.ismViewProfile");
 	return $.map(anchors, function(value) { 
@@ -14,13 +17,26 @@ function waitAndShowPlayers()
 }
 
 function tagPlayers() {
+	console.log(chrome.storage);
 	$.each(_playerIds, function(index, value) {
 		var selector = ".ismAddElement[href='" + value + "']";
-		$(selector).parent().parent().css("background-color", "yellow");
+		$(selector).parent().parent().css("background-color", _PLCOLOR);
 	});
 }
 
+
 var _playerIds = collectTeamMembers();
-tagPlayers();
+waitAndShowPlayers();
 
 $("#ism").on("elementListDisplayFinish", waitAndShowPlayers);
+
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    console.log(sender.tab ?
+                "from a content script:" + sender.tab.url :
+                "from the extension");
+    _PLCOLOR = request.text;
+	tagPlayers();
+    if (request.greeting == "hello")
+      sendResponse({farewell: "goodbye"});
+  });
