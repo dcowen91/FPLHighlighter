@@ -41,6 +41,8 @@ $(document).ready(function() {
 
 	//TODO: make color choices take effect
 
+	//PLAN: rework content script / web accessible resource divide
+
 	//TODO: popup.css & clean up
 
 	//TODO: navbar icons
