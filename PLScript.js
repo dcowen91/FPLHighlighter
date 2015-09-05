@@ -23,8 +23,9 @@ function waitAndShowPlayers()
 	{
 		_teamIds = collectTeamMembers();
 		_watchIds = collectWatchList();
-		tagPlayers(_teamIds, _PLCOLOR);
+		
 		tagPlayers(_watchIds, _WATCHCOLOR);
+		tagPlayers(_teamIds, _PLCOLOR);
 
 	}, 850);
 }
