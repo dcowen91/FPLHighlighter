@@ -1,23 +1,9 @@
 // PLScript.js
 // Updates the DOM with highlighted colors
 
-var _PLCOLOR = "yellow";
-var _WATCHCOLOR = "red";
+var colors = {"_PLTeamColor": "yellow", "_PLWatchColor" : "red"};
 var _teamIds;
 var _watchIds;
-//TODO: pull this from local store
-chrome.storage.sync.get("_PLTeamColor", function(result) {
-		if ( result && result["_PLTeamColor"])
-		{
-			_PLCOLOR = result["_PLTeamColor"];
-		}
-	});
-	chrome.storage.sync.get("_PLWatchColor", function(result) {
-		if ( result && result["_PLWatchColor"])
-		{
-			_WATCHCOLOR = result["_PLWatchColor"];
-		}
-	});
 
 function collectTeamMembers() 
 {
@@ -36,18 +22,22 @@ function waitAndShowPlayers()
 {
 	window.setTimeout(function() 
 	{
-		_teamIds = collectTeamMembers();
-		_watchIds = collectWatchList();
-		
-		tagPlayers(_watchIds, _WATCHCOLOR);
-		tagPlayers(_teamIds, _PLCOLOR);
+		showPlayers();
+	}, 405);
+	// FPL site updates html by .fadeOut(400).fadeIn(400), so wait 400 + small buffer
+}
 
-	}, 850);
+function showPlayers()
+{
+	_teamIds = collectTeamMembers();
+	_watchIds = collectWatchList();
+
+	tagPlayers(_watchIds, colors["_PLTeamColor"]);
+	tagPlayers(_teamIds, colors["_PLWatchColor"]);
 }
 
 function tagPlayers(ids, color) 
 {
-	console.log(chrome.storage);
 	$.each(ids, function(index, value) 
 	{
 		if (!!value)
@@ -58,21 +48,14 @@ function tagPlayers(ids, color)
 	});
 }
 
-waitAndShowPlayers();
-
 $("#ism").on("elementListDisplayFinish", waitAndShowPlayers);
 
-//TODO move this functionality to content script
+document.addEventListener('colorChanged', function (e)
+{
+	var data=e.detail;
+	console.log("received "+data);
+	colors[data.name] = data.color;
+	showPlayers();
+});
 
 
-// chrome.runtime.onMessage.addListener(
-//   function(request, sender, sendResponse) 
-//   {
-//     console.log(sender.tab ?
-//                 "from a content script:" + sender.tab.url :
-//                 "from the extension");
-//     _PLCOLOR = request.text;
-// 	tagPlayers();
-//     if (request.greeting == "hello")
-//       sendResponse({farewell: "goodbye"});
-//   });
