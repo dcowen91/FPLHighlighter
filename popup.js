@@ -29,12 +29,18 @@ function getColorFromStorage(storageName)
 
 function calculateButtonStates()
 {
-
-}
-
-function disableButtons()
-{
-	
+	var teamMatch = $("#_PLTeamColorParent").children(".currentColor").css("background-color") === colors["_PLTeamColor"];
+	var watchMatch = $("#_PLWatchColorParent").children(".currentColor").css("background-color") === colors["_PLWatchColor"];
+	if ( teamMatch && watchMatch)
+	{
+		$("#resetColors").prop("disabled", true);
+		$("#saveColors").prop("disabled", true);
+	}
+	else 
+	{
+		$("#resetColors").prop("disabled", false);
+		$("#saveColors").prop("disabled", false);
+	}
 }
 
 $(document).ready(function() 
@@ -50,7 +56,7 @@ $(document).ready(function()
 	{
 		setCurrentColor("_PLTeamColor", colors["_PLTeamColor"]);
 		setCurrentColor("_PLWatchColor", colors["_PLWatchColor"]);
-		disableButtons();
+		calculateButtonStates();
 	});
 
 	$("#saveColors").click(function()
@@ -58,7 +64,7 @@ $(document).ready(function()
 		saveCurrentColor("_PLTeamColor");
 		saveCurrentColor("_PLWatchColor");
 		chrome.storage.sync.set(colors);
-		disableButtons();
+		calculateButtonStates();
 	});
 
 	$("#closeButton").click(function()
