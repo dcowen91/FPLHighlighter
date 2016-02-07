@@ -14,7 +14,7 @@
   [
     {
       "matches": ["http://fantasy.premierleague.com/*"],
-      "js": ["jquery-2.1.4.min.js", "script.js"]
+      "js": ["jquery-2.2.0.min.js", "script.js"]
     }
   ],
   "page_action": 

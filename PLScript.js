@@ -1,8 +1,23 @@
+// PLScript.js
+// Updates the DOM with highlighted colors
+
 var _PLCOLOR = "yellow";
 var _WATCHCOLOR = "red";
 var _teamIds;
 var _watchIds;
 //TODO: pull this from local store
+chrome.storage.sync.get("_PLTeamColor", function(result) {
+		if ( result && result["_PLTeamColor"])
+		{
+			_PLCOLOR = result["_PLTeamColor"];
+		}
+	});
+	chrome.storage.sync.get("_PLWatchColor", function(result) {
+		if ( result && result["_PLWatchColor"])
+		{
+			_WATCHCOLOR = result["_PLWatchColor"];
+		}
+	});
 
 function collectTeamMembers() 
 {

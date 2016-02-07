@@ -1,18 +1,22 @@
+// POPUP.js
+// Handles managing the color picker popup
+
 function setColor(itemContainerName, color)
 {
 	if (itemContainerName.startsWith("team"))
 	{
 		$("#teamColor").css("background-color", color);
 		chrome.storage.sync.set({"_PLTeamColor" : color});
-		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-			chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
-    		console.log(response.farewell);
-  			});
-		});
+		// chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+		// 	chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, function(response) {
+  //   		console.log(response.farewell);
+  // 			});
+		// });
 	}
 	else if (itemContainerName.startsWith("watch"))
 	{
 		$("#watchColor").css("background-color", color);
+		chrome.storage.sync.set({"_PLWatchColor" : color});
 		//update background script now
 	}
 }
@@ -35,6 +39,12 @@ $(document).ready(function() {
 		if ( result && result["_PLTeamColor"])
 		{
 			setColor("team", result["_PLTeamColor"]);
+		}
+	});
+	chrome.storage.sync.get("_PLWatchColor", function(result) {
+		if ( result && result["_PLWatchColor"])
+		{
+			setColor("watch", result["_PLWatchColor"]);
 		}
 	});
 	//TODO: Fade in

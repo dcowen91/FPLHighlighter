@@ -1,3 +1,6 @@
+// Background.js
+// Shows the popup button on appropriate pages
+
 function checkForValidUrl(tabId, changeInfo, tab) {
 	if (tab.url.indexOf('http://fantasy.premierleague.com') == 0) {
 		chrome.pageAction.show(tabId);
