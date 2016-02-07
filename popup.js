@@ -27,18 +27,30 @@ function getColorFromStorage(storageName)
 	});
 }
 
+function calculateButtonStates()
+{
+
+}
+
+function disableButtons()
+{
+	
+}
+
 $(document).ready(function() 
 {
 	$(".colorChoice").click(function() 
 	{
 		$(this).parent().children().removeClass("currentColor");
 		$(this).addClass("currentColor");
+		calculateButtonStates();
 	});
 
 	$("#resetColors").click(function() 
 	{
 		setCurrentColor("_PLTeamColor", colors["_PLTeamColor"]);
 		setCurrentColor("_PLWatchColor", colors["_PLWatchColor"]);
+		disableButtons();
 	});
 
 	$("#saveColors").click(function()
@@ -46,7 +58,13 @@ $(document).ready(function()
 		saveCurrentColor("_PLTeamColor");
 		saveCurrentColor("_PLWatchColor");
 		chrome.storage.sync.set(colors);
+		disableButtons();
 	});
+
+	$("#closeButton").click(function()
+	{
+		window.close();
+	})
 
 	getColorFromStorage("_PLTeamColor");
 	getColorFromStorage("_PLWatchColor");
