@@ -21,8 +21,8 @@
   {
     "default_icon": 
     {
-      "19": "marker.png",
-      "38": "marker.png"
+      "19": "highlight.png",
+      "38": "highlight.png"
     },
     "default_title": "FPL Highlighter",
     "default_popup": "popup.html"
@@ -31,6 +31,12 @@
   [
     "PLscript.js"
   ],
+  "icons":
+  {
+  "16":"highlight.png",
+  "48":"highlight.png",
+  "128":"highlight.png"
+   },
    "permissions": 
   [
     "storage",

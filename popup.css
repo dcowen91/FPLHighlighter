@@ -90,7 +90,8 @@ h1
 	flex-flow: row;
 }
 
-button {
+button 
+{
 	border: 1px solid transparent;
 	padding: 6px 12px;
 	font-size: 14px;
