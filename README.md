@@ -1,9 +1,9 @@
-#FPLHighLighter
+#FPLHighlighter
 highlight team members in FPL site transfers page
 
-quick and dirty extension to highlight your current team members in the official FPL website's player transfer list
+Extension to highlight your current team members in the official FPL website's player transfer list
 
-	//TODO: popup.css & clean up
+	//TODO: popup.css
 
 	//TODO: update navbar icon
 
@@ -11,4 +11,4 @@ quick and dirty extension to highlight your current team members in the official
 
 	//TODO: add OK/cancel buttons
 
-	//TODO: auto update list on add watchlist
+	//TODO: auto update list on add watchlist (maybe)

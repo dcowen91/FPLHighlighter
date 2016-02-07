@@ -1,7 +1,7 @@
 // PLScript.js
 // Updates the DOM with highlighted colors
 
-var colors = {"_PLTeamColor": "yellow", "_PLWatchColor" : "red"};
+var colors = {"_PLTeamColor": "blue", "_PLWatchColor" : "orange"};
 var _teamIds;
 var _watchIds;
 

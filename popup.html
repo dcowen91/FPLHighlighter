@@ -16,6 +16,11 @@ h1
     margin-top: 0px;
 }
 
+button
+{
+    cursor: pointer;
+}
+
 #container 
 {
 	padding: 1em;
@@ -27,7 +32,6 @@ h1
 	margin-bottom: 10px;
 	padding: 7px 8px 6px 13px;
 	line-height: 20px;
-	cursor: pointer;
 	background-color: #f5f5f5;
 	border: 1px solid #cccccc;
 	-webkit-border-radius: 4px;
@@ -42,6 +46,7 @@ h1
 	margin-left: 2px;
     margin-right: 2px;
     margin-top: 2px;
+    cursor: pointer;
 }
 
 .colorChoices
@@ -57,15 +62,10 @@ h1
     padding-left: 5px;
     padding-right: 5px;
 }
-#teamChoices, #watchChoices
-{
-    display: none;
-}
 
 .chosenColor 
 {
-	display:inline-block;
-	float:right;
+
 }
 
 .colorChoiceContainer 
@@ -79,46 +79,65 @@ h1
     border-radius: 3px;
 }
 
-.colorCaption
+.currentColor
 {
-	float:left;
+	border: 2px dotted #000000;
 }
 
-.choice1 {
+
+.colorCaption
+{
+	display: block;
+}
+
+.choice1 
+{
 	background-color:red;
 }
 
 
-.choice2 {
+.choice2 
+{
 	background-color:orange;
 }
 
-.choice3 {
+.choice3 
+{
 	background-color:yellow;
 }
 
-.choice4 {
+.choice4 
+{
 	background-color:green;
 }
 
-.choice5 {
+.choice5 
+{
 	background-color:steelblue;
 }
 
-.choice6 {
+.choice6 
+{
 	background-color:darkorchid;
 }
 
+#saveColors 
+{
+	float:right;
+}
+
+#resetColors 
+{
+	float: left;
+}
 </style>
+
 </head>
 <body>
 	<div id="container">
 	<h1>FPL Highlighter</h1>
-		<div id="teamContainer" class="colorContainer">
-			<div class="colorCaption">Team Color</div>
-			<div id="teamColor" class="colorChoiceContainer chosenColor"></div>
-		</div>
-		<div id ="teamChoices" class="colorChoices">
+		<div id="_PLTeamColorParent" class="colorContainer">
+			<div class="colorCaption"><strong>Team Color</strong></div>
 			<div class="colorChoice colorChoiceContainer choice1"></div>
 			<div class="colorChoice colorChoiceContainer choice2"></div>
 			<div class="colorChoice colorChoiceContainer choice3"></div>
@@ -126,17 +145,18 @@ h1
 			<div class="colorChoice colorChoiceContainer choice5"></div>
 			<div class="colorChoice colorChoiceContainer choice6"></div>
 		</div>
-		<div id="watchContainer" class="colorContainer">
-			<div class="colorCaption">Watchlist Color</div>
-			<div id="watchColor" class="colorChoiceContainer chosenColor"></div>
-		</div>
-		<div id="watchChoices" class="colorChoices">
+		<div id="_PLWatchColorParent" class="colorContainer">
+			<div class="colorCaption"><strong>Watchlist Color</strong></div>
 			<div class="colorChoice colorChoiceContainer choice1"></div>
 			<div class="colorChoice colorChoiceContainer choice2"></div>
 			<div class="colorChoice colorChoiceContainer choice3"></div>
 			<div class="colorChoice colorChoiceContainer choice4"></div>
 			<div class="colorChoice colorChoiceContainer choice5"></div>
 			<div class="colorChoice colorChoiceContainer choice6"></div>
+		</div>
+		<div id="buttons">
+			<button type="button" id="resetColors">Cancel</button>
+			<button type="button" id="saveColors">Save</button>
 		</div>
 	</div>
 	<script type="text/javascript" src="jquery-2.2.0.min.js"></script>

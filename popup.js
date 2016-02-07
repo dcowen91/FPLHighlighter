@@ -1,49 +1,53 @@
 // POPUP.js
 // Handles managing the color picker popup
 
-function setColor(itemContainerName, color)
+var colors = {"_PLTeamColor": "blue", "_PLWatchColor" : "orange"};
+
+function setCurrentColor(storageName, color)
 {
-	if (itemContainerName.startsWith("team"))
-	{
-		$("#teamColor").css("background-color", color);
-		chrome.storage.sync.set({"_PLTeamColor" : color});
-	}
-	else if (itemContainerName.startsWith("watch"))
-	{
-		$("#watchColor").css("background-color", color);
-		chrome.storage.sync.set({"_PLWatchColor" : color});
-	}
+	$("#" + storageName + "Parent").children().removeClass("currentColor");
+	var colorDiv = $("#" + storageName + "Parent").children().filter( function() { return $(this).css("background-color") == color;});
+	colorDiv.addClass("currentColor");
+}	
+
+function saveCurrentColor(storageName)
+{
+	colors[storageName] = $("#" + storageName + "Parent").children(".currentColor").css("background-color");
 }
 
-function getColorFromStorage(divName, storageName)
+function getColorFromStorage(storageName)
 {
-	chrome.storage.sync.get(storageName, function(result) 
+	chrome.storage.sync.get(storageName, function(result)
 	{
-		if ( result && result[storageName])
+		if (result && result[storageName])
 		{
-			setColor(divName, result[storageName]);
+			colors[storageName] = result[storageName];
 		}
-	});	
+		setCurrentColor(storageName, colors[storageName]);
+	});
 }
 
 $(document).ready(function() 
 {
-	$("#teamContainer").click( function() 
+	$(".colorChoice").click(function() 
 	{
-		$("#teamChoices").toggle();
-	});
-	$("#watchContainer").click( function() 
-	{
-		$("#watchChoices").toggle();
+		$(this).parent().children().removeClass("currentColor");
+		$(this).addClass("currentColor");
 	});
 
-	$(".colorChoice").click( function() 
+	$("#resetColors").click(function() 
 	{
-		var color = $(this).css("background-color");
-		var item = $(this).parent().attr("id");
-		setColor(item, color);
-	})
+		setCurrentColor("_PLTeamColor", colors["_PLTeamColor"]);
+		setCurrentColor("_PLWatchColor", colors["_PLWatchColor"]);
+	});
 
-	getColorFromStorage("team", "_PLTeamColor");
-	getColorFromStorage("watch", "_PLWatchColor");
+	$("#saveColors").click(function()
+	{
+		saveCurrentColor("_PLTeamColor");
+		saveCurrentColor("_PLWatchColor");
+		chrome.storage.sync.set(colors);
+	});
+
+	getColorFromStorage("_PLTeamColor");
+	getColorFromStorage("_PLWatchColor");
 });
