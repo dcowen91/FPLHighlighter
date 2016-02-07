@@ -34,60 +34,34 @@ button[enabled]
 
 .colorContainer 
 {
-	display: block;
 	margin-bottom: 10px;
 	padding: 7px 8px 6px 13px;
-	line-height: 20px;
 	background-color: #f5f5f5;
 	border: 1px solid #cccccc;
-	-webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    overflow:auto;
+	border-radius: 10px;
+    display: flex;
+    flex-flow: row wrap;
 }
 
 .colorChoice
 {
-	display:inline-block;
-	margin-left: 2px;
-    margin-right: 2px;
-    margin-top: 2px;
-    cursor: pointer;
-}
-
-.colorChoices
-{
-	background-color: #f5f5f5;
-	border: 1px solid #cccccc;
-	-webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-
-    margin-bottom: 10px;
-    margin-top: -9px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-.colorChoiceContainer 
-{
-	width: 20px;
-	height: 20px;
-	background-color:red;
-	border: 1px solid #cccccc;
-	-webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
+	margin: 1px;
+	height: 28px;
+	cursor: pointer;
+	/*border: 1px solid #cccccc;*/
+    border-radius: 20px;
+    flex: 1 auto;
 }
 
 .currentColor
 {
-	border: 2px dotted #000000;
+	border: 2px solid #000000;
+	margin: -1px;
 }
 
 .colorCaption
 {
-	display: block;
+	flex: 1 100%;
 }
 
 .choice1 
@@ -121,14 +95,23 @@ button[enabled]
 	background-color:darkorchid;
 }
 
+#buttons
+{
+	padding-bottom: .5em;
+	display: flex;
+    flex-flow: row wrap;
+}
+
 #saveColors 
 {
 	float:right;
+	flex: 1 auto;
 }
 
 #resetColors 
 {
 	float: left;
+	flex: 1 auto;
 }
 
 </style>
@@ -139,21 +122,21 @@ button[enabled]
 	<h1>FPL Highlighter</h1>
 		<div id="_PLTeamColorParent" class="colorContainer">
 			<div class="colorCaption"><strong>Team Color</strong></div>
-			<div class="colorChoice colorChoiceContainer choice1"></div>
-			<div class="colorChoice colorChoiceContainer choice2"></div>
-			<div class="colorChoice colorChoiceContainer choice3"></div>
-			<div class="colorChoice colorChoiceContainer choice4"></div>
-			<div class="colorChoice colorChoiceContainer choice5"></div>
-			<div class="colorChoice colorChoiceContainer choice6"></div>
+			<div class="colorChoice choice1"></div>
+			<div class="colorChoice choice2"></div>
+			<div class="colorChoice choice3"></div>
+			<div class="colorChoice choice4"></div>
+			<div class="colorChoice choice5"></div>
+			<div class="colorChoice choice6"></div>
 		</div>
 		<div id="_PLWatchColorParent" class="colorContainer">
 			<div class="colorCaption"><strong>Watchlist Color</strong></div>
-			<div class="colorChoice colorChoiceContainer choice1"></div>
-			<div class="colorChoice colorChoiceContainer choice2"></div>
-			<div class="colorChoice colorChoiceContainer choice3"></div>
-			<div class="colorChoice colorChoiceContainer choice4"></div>
-			<div class="colorChoice colorChoiceContainer choice5"></div>
-			<div class="colorChoice colorChoiceContainer choice6"></div>
+			<div class="colorChoice choice1"></div>
+			<div class="colorChoice choice2"></div>
+			<div class="colorChoice choice3"></div>
+			<div class="colorChoice choice4"></div>
+			<div class="colorChoice choice5"></div>
+			<div class="colorChoice choice6"></div>
 		</div>
 		<div id="buttons">
 			<button type="button" id="resetColors" disabled="disabled">Cancel</button>
