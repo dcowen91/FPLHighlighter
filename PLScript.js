@@ -17,7 +17,6 @@ function collectWatchList()
 	return ids;
 }
 
-
 function waitAndShowPlayers()
 {
 	window.setTimeout(function() 
@@ -58,5 +57,3 @@ document.addEventListener('colorChanged', function (e)
 	colors[data.name] = data.color;
 	showPlayers();
 });
-
-

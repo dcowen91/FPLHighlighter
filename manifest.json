@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "FPL HighLighter",
-  "description": "Hightlights your team members for Fantasy Premier League",
+  "description": "Hightlight your Fantasy Premier League team members!",
   "version": "1.0",
   "background": {
      "scripts": 
@@ -24,7 +24,7 @@
       "19": "marker.png",
       "38": "marker.png"
     },
-    "default_title": "FPL HighLighter",
+    "default_title": "FPL Highlighter",
     "default_popup": "popup.html"
   },
   "web_accessible_resources": 
