@@ -3,7 +3,8 @@
 
 var s = document.createElement('script');
 s.src = chrome.extension.getURL('PLscript.js');
-s.onload = function() {
+s.onload = function() 
+{
 	this.parentNode.removeChild(this);
 
 	chrome.storage.sync.get(["_PLTeamColor", "_PLWatchColor"], function(values)
@@ -19,8 +20,8 @@ s.onload = function() {
 (document.head||document.documentElement).appendChild(s);
 
 
-chrome.storage.onChanged.addListener(function(changes, namespace) {
-	console.log(changes);
+chrome.storage.onChanged.addListener(function(changes, namespace) 
+{
 	for (key in changes) 
 	{
 		var storageChange = changes[key];

@@ -32,8 +32,8 @@ function showPlayers()
 	_teamIds = collectTeamMembers();
 	_watchIds = collectWatchList();
 
-	tagPlayers(_watchIds, colors["_PLTeamColor"]);
-	tagPlayers(_teamIds, colors["_PLWatchColor"]);
+	tagPlayers(_watchIds, colors["_PLWatchColor"]);
+	tagPlayers(_teamIds, colors["_PLTeamColor"]);
 }
 
 function tagPlayers(ids, color) 
@@ -44,6 +44,7 @@ function tagPlayers(ids, color)
 		{
 			var selector = ".ismAddElement[href='#" + value + "']";
 			$(selector).parent().parent().css("background-color", color);
+			$(selector).parent().parent().css("font-weight", "bold");
 		}
 	});
 }
