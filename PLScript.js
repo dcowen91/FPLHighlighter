@@ -1,7 +1,7 @@
 // PLScript.js
 // Updates the DOM with highlighted colors
 
-var colors = {"_PLTeamColor": "blue", "_PLWatchColor" : "orange"};
+var colors = {"_PLTeamColor": "steelblue", "_PLWatchColor" : "orange"};
 var _teamIds;
 var _watchIds;
 
@@ -49,6 +49,7 @@ function tagPlayers(ids, color)
 }
 
 $("#ism").on("elementListDisplayFinish", waitAndShowPlayers);
+waitAndShowPlayers();
 
 document.addEventListener('colorChanged', function (e)
 {
