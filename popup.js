@@ -23,8 +23,8 @@ function getColorFromStorage(storageName)
 		{
 			colors[storageName] = result[storageName];
 		}
-		setCurrentColor(storageName, colors[storageName]);
 	});
+	setCurrentColor(storageName, colors[storageName]);
 }
 
 function calculateButtonStates()
